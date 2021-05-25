@@ -7,8 +7,9 @@ import SingInForm from "./SignInForm"
 
 const SignIn = ()=>{
     return (
-    <PageStyle backGroundImage={LoneDiver} backGroundColor = "#003935"> 
+    <PageStyle backGroundImage={LoneDiver}> 
         <InteractionCard>
+            <h2>Sign Up</h2>
             <SingInForm/>
         </InteractionCard>
     </PageStyle>

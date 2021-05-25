@@ -24,11 +24,11 @@ const WelcomePage = () => {
               justifyContent="center"
               flexDirection="row"
             >
-            <LinkButton destination="/log-in"
+            <LinkButton destination="/login"
                color="white"
                title="Log in"
                label="already a user?"/>
-            <LinkButton destination="/sign-in"
+            <LinkButton destination="/signIn"
                 color="white"
                 title="Sign in"
                 label="Join Our Comunity"/>

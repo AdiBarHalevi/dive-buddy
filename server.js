@@ -1,12 +1,14 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const path = require("path");
+const adminRoute = require("./server/routes/adminRoute");
+
+app.use(bodyParser.json());
 app.use(cors());
-app.get("/api/getUser", (req, res) => {
-  const user = "Evgeni";
-  res.json(user);
-});
+require("./server/db/mongoose");
+app.use("/", adminRoute);
 
 const port = 8000;
 
@@ -16,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 
   // Express serve up index.html file if it doesn't recognize route
   const path = require("path");
-  app.get("*", (req, res) => {
+  app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }

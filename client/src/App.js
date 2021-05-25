@@ -6,6 +6,7 @@ import WelcomePage from "./welcome-page/Welcome-page";
 import NavBar from "./welcome-page/NavBar";
 import SignIn from "./sign-in-page/SignIn"
 import theme from "./globals/theme";
+import Login from "./login-page/Login";
 
 const App = () => (
   <BrowserRouter>
@@ -14,8 +15,8 @@ const App = () => (
 
     <Switch>
       <Route path="/" exact component={WelcomePage} />
-
-      <Route path="/sign-in" exact component={SignIn} />
+      <Route path="/signIn" exact component={SignIn} />
+      <Route path="/login" exact component={Login} />
     </Switch>
 
     </ThemeProvider>

@@ -14,6 +14,7 @@ export const FlexBoxStyledComponent = styled.div`
 
 
 export const Button = styled.button`
+  margin:${(props)=>props.margin};
   color: white;
   background: #1974d3;
   cursor: pointer;
@@ -25,8 +26,6 @@ export const Button = styled.button`
   }
 `;
 
-//TODO : Move to common interface for styled components file
-
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${(props) => props.color};
@@ -34,10 +33,11 @@ export const StyledLink = styled(Link)`
 
 export const InteractionCard = styled.div`
   border: 8px solid ${props => props.theme.colors.primary};
+  padding:1rem;
   display: flex;
   flex-direction: column;
   width: 25vw;
-  height: 60vh;
+  height: 50vh;
   background-color: rgb(255, 255, 255, 0.9);
   justify-content: space-around;
   align-items: center;
