@@ -1,56 +1,39 @@
 import React from "react";
-import {
-  FlexBoxStyledComponent,
-  Button,
-  StyledLink,
-} from "../common-components/styled-components/UtiltyComps";
+import {FlexBoxStyledComponent,InteractionCard} from "../common-components/styled-components/UtiltyComps";
 
 import PageStyle from "../common-components/styled-components/PageStyle";
 import {
-  WelcomeSignStyleDiv,
-  BottonsDivStyle,
   H1,
   Paragraph,
 } from "./welcomeSignStyle";
 
+
 import Wave from "../img/wavegif.gif";
+import LinkButton from "../common-components/LinkButton";
 
 const WelcomePage = () => {
   return (
-    <PageStyle backGround={Wave}>
-      <WelcomeSignStyleDiv>
-        <FlexBoxStyledComponent flexDirection="column" width="2rem">
-          <H1>DiveBuddy!</H1>
-          <Paragraph>Find a Buddy to dive with</Paragraph>
-        </FlexBoxStyledComponent>
-
-        <BottonsDivStyle>
-          <FlexBoxStyledComponent
-            justifyContent="center"
-            flexDirection="column"
-          >
-            <label>already a user?</label>
-
-            <Button>
-              {" "}
-              <StyledLink to="/log-in" color="white">
-                Log in
-              </StyledLink>
-            </Button>
+    <PageStyle backGroundImage={Wave}>
+      <InteractionCard>
+          <FlexBoxStyledComponent flexDirection="column" width="2rem">
+            <H1>DiveBuddy!</H1>
+            <Paragraph>Find a Buddy to dive with</Paragraph>
           </FlexBoxStyledComponent>
-          <FlexBoxStyledComponent
-            justifyContent="center"
-            flexDirection="column"
-          >
-            <label>care to join?</label>
-            <Button>
-              <StyledLink to="/sign-in" color="white">
-                Sign in
-              </StyledLink>
-            </Button>
-          </FlexBoxStyledComponent>
-        </BottonsDivStyle>
-      </WelcomeSignStyleDiv>
+
+            <FlexBoxStyledComponent
+              justifyContent="center"
+              flexDirection="row"
+            >
+            <LinkButton destination="/log-in"
+               color="white"
+               title="Log in"
+               label="already a user?"/>
+            <LinkButton destination="/sign-in"
+                color="white"
+                title="Sign in"
+                label="Join Our Comunity"/>
+            </FlexBoxStyledComponent>
+        </InteractionCard>
     </PageStyle>
   );
 };

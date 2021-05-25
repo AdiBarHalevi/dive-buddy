@@ -1,14 +1,14 @@
 import styled from "styled-components";
+import { FlexBoxStyledComponent } from "./UtiltyComps";
 
-const PageStyle = styled.div`
+const PageStyle = styled(FlexBoxStyledComponent)`
   border: 1px solid black;
-  height: 93.8vh;
+  height: calc(100vh - 3rem);
   display: flex;
   justify-content: center;
-  background: transparent;
+  // background: transparent;
   align-items: center;
   position: relative;
-  background: #53ccec;
   &:before {
     content: "";
     top: 0;
@@ -16,8 +16,8 @@ const PageStyle = styled.div`
     height: 100%;
     width: 100%;
     position: absolute;
-    background-image: url(${(props) => props.backGround});
-    opacity: 0.2;
+    background-image: url(${(props) => props.backGroundImage});
+    opacity: 1;
     background-position: center;
     background-size: cover;
   }

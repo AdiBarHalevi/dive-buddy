@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
-  background: #000169;
+  background: black;
   display: flex;
   justify-content: center;
-  height: 6vh;
+  height: 3rem;
 `;
 
 export const UlStyle = styled.ul`
