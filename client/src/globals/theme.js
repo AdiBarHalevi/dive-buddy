@@ -1,6 +1,7 @@
 const theme = {
     colors: {
         primary : 'rgb(0, 1, 129, 0.8)',
+        fontColor:`rgb(0, 1, 129)`
     },
     boxShadows : {
         regular: '1px 1px 3px 1px black'
@@ -16,3 +17,4 @@ const theme = {
   };
 
 export default  theme 
+

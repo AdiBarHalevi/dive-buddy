@@ -8,11 +8,10 @@ import {
 } from "./welcomeSignStyle";
 
 
-import Wave from "../img/wavegif.gif";
+import Wave from "../img/bubblesGif.gif";
 import LinkButton from "../common-components/LinkButton";
 
-const WelcomePage = () => {
-  return (
+const WelcomePage = () =>(
     <PageStyle backGroundImage={Wave}>
       <InteractionCard>
           <FlexBoxStyledComponent flexDirection="column" width="2rem">
@@ -36,6 +35,6 @@ const WelcomePage = () => {
         </InteractionCard>
     </PageStyle>
   );
-};
+
 
 export default WelcomePage;

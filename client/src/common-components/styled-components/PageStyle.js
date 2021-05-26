@@ -3,7 +3,7 @@ import { FlexBoxStyledComponent } from "./UtiltyComps";
 
 const PageStyle = styled(FlexBoxStyledComponent)`
   border: 1px solid black;
-  height: calc(100vh - 3rem);
+  height: 100vh;
   display: flex;
   justify-content: center;
   // background: transparent;

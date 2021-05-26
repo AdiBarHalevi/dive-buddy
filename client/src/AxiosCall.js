@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
 });
 
 export const genAnewUser = async (userData) => {
+  console.log(userData)
   try {
       const res = await axiosInstance.post(`/user`,{body:userData});
       console.log(res)
