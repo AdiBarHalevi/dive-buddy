@@ -5,10 +5,7 @@ const cors = require("cors");
 const app = express();
 const path = require("path");
 const adminRoute = require("./server/routes/adminRoute");
-app.get('/api/getUser', (req,res)=>{
-  const user = 'Adi';
-  res.json(user);
-})
+
 const port = 8000;
 
 
