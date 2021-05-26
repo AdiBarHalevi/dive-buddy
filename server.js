@@ -1,6 +1,6 @@
 const express = require("express");
 require("./server/db/mongoose");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const path = require("path");
@@ -9,7 +9,7 @@ const adminRoute = require("./server/routes/adminRoute");
 const port = 8000;
 
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 

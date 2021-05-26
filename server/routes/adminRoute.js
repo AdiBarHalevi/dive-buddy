@@ -22,7 +22,7 @@ router.get("/user/me",auth, async (req, res) => {
       const user = await UserModel.findByCredentials(email, password);
       
       const token = await user.generateAuthToken()
-      res.status(200).send({user:user.getPublicProfile(),token});
+      res.status(200).send({user,token});
 
     } catch (e) {
       res.status(400).send({"error":e});

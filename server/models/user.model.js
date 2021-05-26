@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
   }],
 });
 
-userSchema.methods.getPublicProfile = function(){
+userSchema.methods.toJSON = function(){
   const user = this
   const userObject = user.toObject()
 
@@ -70,7 +70,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
     if (!user) throw new Error(`unable to login`);
 
     const isMatch = await bcrypt.compare(password,user.password);
-
+    // TODO-CHECK WHY ITS ALWAYS FALSE
     // if (!isMatch) throw new Error(`unable to login`);
 
     return user;
