@@ -21,7 +21,7 @@ const SingInForm = () => {
       email: emailRef.current.value,
     };
     const loginResponse = await loginUser(user);
-    if (loginResponse.length === 0) return setErrorMsgState(true);
+    if (loginResponse === undefined) return setErrorMsgState(true);
     history.push("/dashBoard");
   };
 

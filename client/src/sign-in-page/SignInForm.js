@@ -6,6 +6,7 @@ import {
   Form,
   InputStyle,
 } from "../common-components/styled-components/Form.style";
+import history from "../globals/history"
 
 const SingInForm = () => {
   const [diverSkillLevelState, setDiverSkillLevelState] = useState("begginer");
@@ -23,7 +24,7 @@ const SingInForm = () => {
   const emailRef = useRef(undefined);
   const passwordRef = useRef(undefined);
 
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
     const newUser = {
       firstName: firstNameRef.current.value,
@@ -33,7 +34,8 @@ const SingInForm = () => {
       skillLevel: diverSkillLevelState,
       password: passwordRef.current.value,
     };
-    genAnewUser(newUser);
+    const ans = await genAnewUser(newUser);
+    if(ans) history.push("/dashBoard");
   };
 
   return (

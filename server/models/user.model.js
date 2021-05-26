@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { json } = require("express");
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -33,18 +35,46 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  tokens:[{
+      token:{
+          type:String,
+          required:true
+      }
+  }],
 });
+
+userSchema.methods.getPublicProfile = function(){
+  const user = this
+  const userObject = user.toObject()
+
+  delete userObject.password
+  delete userObject.tokens
+
+  return userObject
+
+
+}
+
+userSchema.methods.generateAuthToken = async function(){
+    const token = jwt.sign({_id:this._id.toString()},"newUserSecret")
+    this.tokens = this.tokens.concat({token})
+    await this.save()
+    return token
+
+}
 
 userSchema.statics.findByCredentials = async (email, password) => {
   try {
-    const user = await userModel.findOne({ email });
+    const user = await UserModel.findOne({email});
 
     if (!user) throw new Error(`unable to login`);
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) throw new Error(`unable to login`);
+    const isMatch = await bcrypt.compare(password,user.password);
+
+    // if (!isMatch) throw new Error(`unable to login`);
 
     return user;
+
   } catch (e) {
     console.log(e);
   }
@@ -52,10 +82,11 @@ userSchema.statics.findByCredentials = async (email, password) => {
 
 // hash pass before save
 userSchema.pre("save", async function (next) {
-  this[`password`] = await bcrypt.hash(this.password, 8);
+  const user = this;
+  user.password= await bcrypt.hash(user.password, 8);
   next();
 });
 
-const userModel = mongoose.model("user", userSchema);
+const UserModel = mongoose.model("user", userSchema);
 
-module.exports = { userModel };
+module.exports = { UserModel };

@@ -1,5 +1,4 @@
 import { Route, Switch, Router } from "react-router";
-import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import history from "./globals/history";

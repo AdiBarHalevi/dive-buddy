@@ -8,10 +8,9 @@ const axiosInstance = axios.create({
 });
 
 export const genAnewUser = async (userData) => {
-  console.log(userData);
   try {
-    const res = await axiosInstance.post(`/user`, { body: userData });
-    console.log(res);
+    const res = await axiosInstance.post(`/user/signin`, { body: userData });
+    return res;
   } catch (e) {
     console.log(e);
   }
@@ -20,6 +19,7 @@ export const genAnewUser = async (userData) => {
 export const loginUser = async (userData) => {
   try {
     const res = await axiosInstance.post(`/user/login`, { body: userData });
+    console.log(res)
     return res.data;
   } catch (e) {
     console.log(e);

@@ -1,4 +1,4 @@
-const { userModel } = require("../models/user.model");
+const {UserModel } = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 
 const postAuser = async (req, res) => {
@@ -11,7 +11,7 @@ const postAuser = async (req, res) => {
     skillLevel,
   } = req.body.body;
   try {
-    const user = await new userModel({
+    const user = await new UserModel({
       firstName,
       lastName,
       dateOfBirth,
@@ -19,10 +19,11 @@ const postAuser = async (req, res) => {
       skillLevel,
       password,
     });
-    user.save();
-    res.status(200).json({ success: user });
+    await user.save();
+    const token = await user.generateAuthToken()
+    res.status(200).send({user,token});
   } catch (e) {
-    return res.status(400).json({ error: e });
+     res.status(400).send(e);
   }
 };
 
