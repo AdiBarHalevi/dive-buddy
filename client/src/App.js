@@ -8,19 +8,22 @@ import SignIn from "./sign-in-page/SignIn";
 import theme from "./globals/theme";
 import Login from "./login-page/Login";
 import MainPage from "./main-page/MainPage";
+import { RecoilRoot } from "recoil";
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Router history={history}>
-        <Switch>
-          <Route path="/" exact component={WelcomePage} />
-          <Route path="/signIn" exact component={SignIn} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/dashBoard" exact component={MainPage} />
-        </Switch>
-      </Router>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Router history={history}>
+          <Switch>
+            <Route path="/" exact component={WelcomePage} />
+            <Route path="/signIn" exact component={SignIn} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/dashBoard" exact component={MainPage} />
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 };
 

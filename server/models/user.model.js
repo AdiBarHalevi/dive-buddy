@@ -35,46 +35,44 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  tokens:[{
-      token:{
-          type:String,
-          required:true
-      }
-  }],
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
-userSchema.methods.toJSON = function(){
-  const user = this
-  const userObject = user.toObject()
+userSchema.methods.toJSON = function () {
+  const user = this;
+  const userObject = user.toObject();
 
-  delete userObject.password
-  delete userObject.tokens
+  delete userObject.password;
+  delete userObject.tokens;
 
-  return userObject
+  return userObject;
+};
 
-
-}
-
-userSchema.methods.generateAuthToken = async function(){
-    const token = jwt.sign({_id:this._id.toString()},"newUserSecret")
-    this.tokens = this.tokens.concat({token})
-    await this.save()
-    return token
-
-}
+userSchema.methods.generateAuthToken = async function () {
+  const token = jwt.sign({ _id: this._id.toString() }, "newUserSecret");
+  this.tokens = this.tokens.concat({ token });
+  await this.save();
+  return token;
+};
 
 userSchema.statics.findByCredentials = async (email, password) => {
   try {
-    const user = await UserModel.findOne({email});
+    const user = await UserModel.findOne({ email });
 
     if (!user) throw new Error(`unable to login`);
 
-    const isMatch = await bcrypt.compare(password,user.password);
+    const isMatch = await bcrypt.compare(password, user.password);
     // TODO-CHECK WHY ITS ALWAYS FALSE
     // if (!isMatch) throw new Error(`unable to login`);
 
     return user;
-
   } catch (e) {
     console.log(e);
   }
@@ -83,7 +81,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
 // hash pass before save
 userSchema.pre("save", async function (next) {
   const user = this;
-  user.password= await bcrypt.hash(user.password, 8);
+  user.password = await bcrypt.hash(user.password, 8);
   next();
 });
 

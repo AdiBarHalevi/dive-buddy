@@ -19,7 +19,24 @@ export const genAnewUser = async (userData) => {
 export const loginUser = async (userData) => {
   try {
     const res = await axiosInstance.post(`/user/login`, { body: userData });
-    console.log(res)
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getEvents = async () => {
+  try {
+    const res = await axiosInstance.get(`/events`);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const PostEvent = async (body) => {
+  try {
+    const res = await axiosInstance.post(`/events`, { body });
     return res.data;
   } catch (e) {
     console.log(e);

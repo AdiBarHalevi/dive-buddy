@@ -6,7 +6,7 @@ import {
   Form,
   InputStyle,
 } from "../common-components/styled-components/Form.style";
-import history from "../globals/history"
+import history from "../globals/history";
 
 const SingInForm = () => {
   const [diverSkillLevelState, setDiverSkillLevelState] = useState("begginer");
@@ -35,7 +35,7 @@ const SingInForm = () => {
       password: passwordRef.current.value,
     };
     const ans = await genAnewUser(newUser);
-    if(ans) history.push("/dashBoard");
+    if (ans) history.push("/dashBoard");
   };
 
   return (

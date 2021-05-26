@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
-  background: black;
+  background: #042139;
   display: flex;
   justify-content: center;
   height: 3rem;
+  z-index: 2;
+  position: fixed;
+  top: 2rem;
+  width: 90%;
 `;
 
 export const UlStyle = styled.ul`

@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Button } from "../common-components/styled-components/UtiltyComps";
+import { useSetRecoilState } from "recoil";
+import { userGlobalDataState } from "../globals/atoms";
 
 import { loginUser } from "../AxiosCall";
 import {
@@ -13,6 +15,7 @@ const SingInForm = () => {
   const [errorMsgState, setErrorMsgState] = useState(false);
   const passwordRef = useRef(undefined);
   const emailRef = useRef(undefined);
+  const SetUserGlobalDataState = useSetRecoilState(userGlobalDataState);
 
   const handleClick = async (event) => {
     event.preventDefault();
@@ -22,6 +25,7 @@ const SingInForm = () => {
     };
     const loginResponse = await loginUser(user);
     if (loginResponse === undefined) return setErrorMsgState(true);
+    SetUserGlobalDataState(loginResponse);
     history.push("/dashBoard");
   };
 
@@ -30,7 +34,7 @@ const SingInForm = () => {
       <h2>Login</h2>
       {errorMsgState && "something went wrong,try again"}
       <label>password </label>
-      <InputStyle type="text" ref={passwordRef} required></InputStyle>
+      <InputStyle type="password" ref={passwordRef} required></InputStyle>
       <label> Email </label>
       <InputStyle type="email" ref={emailRef}></InputStyle>
       <Button type="submit" margin="1.5rem">

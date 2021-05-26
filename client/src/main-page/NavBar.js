@@ -1,4 +1,9 @@
-import { HeaderStyle, IconStyle, LiStyle, UlStyle } from "./HeaderStyle";
+import {
+  HeaderStyle,
+  IconStyle,
+  LiStyle,
+  UlStyle,
+} from "../welcome-page/HeaderStyle";
 import { StyledLink } from "../common-components/styled-components/UtiltyComps";
 
 const NavBar = () => (
@@ -6,13 +11,13 @@ const NavBar = () => (
     <UlStyle>
       <LiStyle>
         <StyledLink color="white" to="/">
-          <IconStyle>HOME</IconStyle>
+          <IconStyle>LOGOUT</IconStyle>
         </StyledLink>
       </LiStyle>
 
       <LiStyle>
-        <StyledLink color="white" to="/login">
-          <IconStyle>Login</IconStyle>
+        <StyledLink color="white" to="/">
+          <IconStyle>MSG</IconStyle>
         </StyledLink>
       </LiStyle>
     </UlStyle>
