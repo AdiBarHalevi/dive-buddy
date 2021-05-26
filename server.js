@@ -5,13 +5,16 @@ const cors = require("cors");
 const app = express();
 const path = require("path");
 const adminRoute = require("./server/routes/adminRoute");
-
+app.get('/api/getUser', (req,res)=>{
+  const user = 'Adi';
+  res.json(user);
+})
 const port = 8000;
 
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
 
 
 // app.use((req,res,next)=>{
@@ -22,7 +25,6 @@ app.use("/", adminRoute);
 
 if (process.env.NODE_ENV === "production") {
   // Exprees will serve up production assets
-  app.use(cors());
   app.use(express.static("client/build"));
 
   // Express serve up index.html file if it doesn't recognize route
