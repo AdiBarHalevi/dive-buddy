@@ -1,26 +1,28 @@
-import { Route, Switch } from "react-router";
+import { Route, Switch, Router } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
+import history from "./globals/history";
+
 import WelcomePage from "./welcome-page/Welcome-page";
-import SignIn from "./sign-in-page/SignIn"
+import SignIn from "./sign-in-page/SignIn";
 import theme from "./globals/theme";
 import Login from "./login-page/Login";
-import MainPage from "./main-page/MainPage"
+import MainPage from "./main-page/MainPage";
 
-const App = () => (
-  <BrowserRouter>
+const App = () => {
+  return (
     <ThemeProvider theme={theme}>
-    <Switch>
-      <Route path="/" exact component={WelcomePage} />
-      <Route path="/signIn" exact component={SignIn} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/dashBoard" exact component={MainPage} />
-    </Switch>
-
+      <Router history={history}>
+        <Switch>
+          <Route path="/" exact component={WelcomePage} />
+          <Route path="/signIn" exact component={SignIn} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/dashBoard" exact component={MainPage} />
+        </Switch>
+      </Router>
     </ThemeProvider>
-  </BrowserRouter>
-);
-
+  );
+};
 
 export default App;

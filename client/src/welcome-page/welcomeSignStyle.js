@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-
 export const BottonsDivStyle = styled.div`
   display: flex;
   justify-content: space-around;
   z-index: 1;
   width: 80%;
   font-size: 22px;
-  
 `;
 
 export const H1 = styled.h1`

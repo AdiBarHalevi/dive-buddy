@@ -1,9 +1,7 @@
-import React from "react"
+import React from "react";
 
-const UserCalendar  = ()=>{
-    return(
-         <div>dadada</div>
-         )
-}
+const UserCalendar = () => {
+  return <div>dadada</div>;
+};
 
-export default UserCalendar
+export default UserCalendar;

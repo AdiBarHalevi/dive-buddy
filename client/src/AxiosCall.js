@@ -8,20 +8,20 @@ const axiosInstance = axios.create({
 });
 
 export const genAnewUser = async (userData) => {
-  console.log(userData)
+  console.log(userData);
   try {
-      const res = await axiosInstance.post(`/user`,{body:userData});
-      console.log(res)
-    } catch (e) {
-      console.log(e);
-    }
-  };
+    const res = await axiosInstance.post(`/user`, { body: userData });
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const loginUser = async (userData) => {
   try {
-      const res = await axiosInstance.post(`/user/login`,{body:userData});
-      console.log(res)
-    } catch (e) {
-      console.log(e);
-    }
-  };
+    const res = await axiosInstance.post(`/user/login`, { body: userData });
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};

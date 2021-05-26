@@ -1,18 +1,20 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
-const SelectComp = ({setDiverSkillLevelState,divingSkills})=>{
+const SelectComp = ({ setDiverSkillLevelState, divingSkills }) => {
+  const handleChange = (e) => setDiverSkillLevelState(e.target.value);
 
-    const handleChange=(e)=> setDiverSkillLevelState(e.target.value)
-
-    return <SelectStyle onChange={handleChange}>
-        {divingSkills.map((skill,i)=><option key ={i}>{skill}</option>)}
+  return (
+    <SelectStyle onChange={handleChange}>
+      {divingSkills.map((skill, i) => (
+        <option key={i}>{skill}</option>
+      ))}
     </SelectStyle>
-}
+  );
+};
 
-export default SelectComp
+export default SelectComp;
 
 const SelectStyle = styled.select`
-    height:1.5rem;
-
-`
+  height: 1.5rem;
+`;

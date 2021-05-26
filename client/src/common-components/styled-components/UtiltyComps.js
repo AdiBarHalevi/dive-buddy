@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 export const FlexBoxStyledComponent = styled.div`
     display:flex;
     justify-content:${(props) => props.justifyContent};
@@ -12,9 +11,8 @@ export const FlexBoxStyledComponent = styled.div`
     z-index:1;
 `;
 
-
 export const Button = styled.button`
-  margin:${(props)=>props.margin};
+  margin: ${(props) => props.margin};
   color: white;
   background: #1974d3;
   cursor: pointer;
@@ -32,8 +30,8 @@ export const StyledLink = styled(Link)`
 `;
 
 export const InteractionCard = styled.div`
-  border: 8px solid ${props => props.theme.colors.primary};
-  padding:1rem;
+  border: 8px solid ${(props) => props.theme.colors.primary};
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   width: 25vw;
@@ -43,5 +41,5 @@ export const InteractionCard = styled.div`
   align-items: center;
   z-index: 1;
   border-radius: 6rem;
-  box-shadow:  ${props => props.theme.boxShadows.regular};
-  `
+  box-shadow: ${(props) => props.theme.boxShadows.regular};
+`;

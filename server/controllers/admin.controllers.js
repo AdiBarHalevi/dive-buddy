@@ -1,21 +1,30 @@
-const { userModel } = require("../models/user.model")
-const bcrypt = require("bcryptjs")
+const { userModel } = require("../models/user.model");
+const bcrypt = require("bcryptjs");
 
-const postAuser= async (req,res)=>{
-    const {password,firstName,lastName,dateOfBirth,email,skillLevel} = req.body.body
-    try{
-        const user = await  new userModel({
-            firstName,
-            lastName,
-            dateOfBirth,
-            email,
-            skillLevel,
-            password
-        })
-        user.save()
-        res.status(200).json({"success":user})
-    } catch(e){return res.status(400).json({ "error": e });}
-}
+const postAuser = async (req, res) => {
+  const {
+    password,
+    firstName,
+    lastName,
+    dateOfBirth,
+    email,
+    skillLevel,
+  } = req.body.body;
+  try {
+    const user = await new userModel({
+      firstName,
+      lastName,
+      dateOfBirth,
+      email,
+      skillLevel,
+      password,
+    });
+    user.save();
+    res.status(200).json({ success: user });
+  } catch (e) {
+    return res.status(400).json({ error: e });
+  }
+};
 
 // to validate
 // const findByCredentials=async (req,res)=>{
@@ -26,4 +35,4 @@ const postAuser= async (req,res)=>{
 //     } catch(e){return res.status(400).json({ "error": e });}
 // }
 
-module.exports={postAuser}
+module.exports = { postAuser };
