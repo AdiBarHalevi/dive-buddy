@@ -7,8 +7,14 @@ const EventList = () => {
   const [listDataState, setListDataState] = useState([]);
 
   const  fecthList = async()=>{
-    const eventList = await getEvents();
-    setListDataState(eventList.ans);
+    const localList = sessionStorage.getItem("events")
+    if(!localList){
+      const eventList = await getEvents();
+      sessionStorage.setItem("events",JSON.stringify(eventList.ans))
+      return setListDataState(eventList.ans);
+    }
+    return setListDataState(JSON.parse(localList));
+    
   }
 
   useEffect(() => {

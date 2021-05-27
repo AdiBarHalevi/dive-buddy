@@ -25,7 +25,7 @@ const SingInForm = () => {
     };
     const loginResponse = await loginUser(user);
     if (loginResponse === undefined) return setErrorMsgState(true);
-    SetUserGlobalDataState(loginResponse);
+    SetUserGlobalDataState(loginResponse.user);
     history.push("/dashBoard");
   };
 

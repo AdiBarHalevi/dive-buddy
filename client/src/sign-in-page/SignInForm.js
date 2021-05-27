@@ -7,9 +7,12 @@ import {
   InputStyle,
 } from "../common-components/styled-components/Form.style";
 import history from "../globals/history";
+import { useSetRecoilState } from "recoil";
+import { userGlobalDataState } from "../globals/atoms";
 
 const SingInForm = () => {
   const [diverSkillLevelState, setDiverSkillLevelState] = useState("begginer");
+  const SetUserGlobalDataState = useSetRecoilState(userGlobalDataState);
 
   const divingSkills = [
     "begginer",
@@ -35,7 +38,10 @@ const SingInForm = () => {
       password: passwordRef.current.value,
     };
     const ans = await genAnewUser(newUser);
-    if (ans) history.push("/dashBoard");
+    if (ans){ 
+      SetUserGlobalDataState(newUser)
+      history.push("/dashBoard");
+    }
   };
 
   return (

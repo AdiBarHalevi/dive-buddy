@@ -11,9 +11,9 @@ import {
 } from "../common-components/styled-components/UtiltyComps";
 
 const PostAtrip = () => {
-  const dateRef = useRef("null");
-  const locationRef = useRef("null");
-  const peopleRef = useRef("null");
+  const dateRef = useRef("");
+  const locationRef = useRef("");
+  const peopleRef = useRef("");
 
   const handleSubmit = (event) => {
     event.preventDefault();

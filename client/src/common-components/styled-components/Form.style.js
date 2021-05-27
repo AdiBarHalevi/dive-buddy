@@ -8,7 +8,7 @@ export const Form = styled.form`
   justify-content: space-around;
   flex-direction: column;
   padding: 1rem;
-  font-size:2rem;
+  font-size:1rem;
 `;
 export const InputStyle = styled.input`
   width: 100%;

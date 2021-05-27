@@ -6,7 +6,7 @@ import PageStyle from "../common-components/styled-components/PageStyle";
 
 import Bubbles from "../img/bubblesGif.gif";
 import { userGlobalDataState } from "../globals/atoms";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import NavBar from "./NavBar";
 import WelcomeToDashBoard from "./WelcomeToDashBoard";
 import EventList from "./EventList";
@@ -14,10 +14,9 @@ import { DashBoardContainer, MainDivDashBoardStyle } from "./MainPageStyle";
 import PostAtrip from "./PostAtrip";
 
 const MainPage = () => {
-  const [userGlobalData, setUserGlobalData] = useRecoilState(
-    userGlobalDataState
-  );
-  // const [eventListState, setEventListState]=useState("")
+
+  const [userGlobalData,setUserGlobalDataState] = useRecoilState(userGlobalDataState);
+
 
   const [displayState, setDisplayState] = useState("greet");
 
@@ -27,18 +26,19 @@ const MainPage = () => {
 
   const displayManager = () => {
     if (displayState === "greet")
-      return <WelcomeToDashBoard name={userGlobalData.user.firstName} />;
+      return <WelcomeToDashBoard name={userGlobalData.firstName} />;
     else if (displayState === "calender") return <EventList />;
     return <PostAtrip />;
   };
 
+
   return (
     <PageStyle backGroundImage={Bubbles}>
+
       <NavBar />
 
       <DashBoardContainer>
-        {displayManager()}
-
+      {displayManager()}
         <MainDivDashBoardStyle>
           <FlexBoxStyledComponent width="30px" justifyContent="space-around">
             <Button
@@ -64,10 +64,13 @@ const MainPage = () => {
             go back
           </Button>
           </FlexBoxStyledComponent>
-        </MainDivDashBoardStyle>
+        </MainDivDashBoardStyle> 
       </DashBoardContainer>
     </PageStyle>
   );
 };
 
 export default MainPage;
+
+
+

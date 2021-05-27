@@ -1,11 +1,11 @@
 import React from "react";
 import { MainDivDashBoardStyle } from "./MainPageStyle";
 
-const WelcomeToDashBoard = ({ name }) => {
+const WelcomeToDashBoard = ( {name} ) => {
   return (
     <MainDivDashBoardStyle>
       <p>
-        hi {name},welcome back <br />
+        hi {name}<br />
         what would you like to do?{" "}
       </p>
     </MainDivDashBoardStyle>
