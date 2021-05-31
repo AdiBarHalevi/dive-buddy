@@ -42,3 +42,11 @@ export const PostEvent = async (body) => {
     console.log(e);
   }
 };
+
+export const findLocationAPI = async (adress)=>{
+  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(adress)}.json?access_token=pk.eyJ1IjoiYWRpYmFyMTQxIiwiYSI6ImNrbmZ4dTZkYTJ6dWcycHA5amliejJ6ZmoifQ.bYYgGmzzRfwr2D9REQmfzA&limit=1`
+  try{
+    const ans = await axiosInstance.get(url)
+    return ans
+  }catch(e){console.log(e)}
+}

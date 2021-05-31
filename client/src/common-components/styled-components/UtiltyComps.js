@@ -6,8 +6,8 @@ export const FlexBoxStyledComponent = styled.div`
     justify-content:${(props) => props.justifyContent};
     align-items:${(props) => props.alignItems};
     flex-direction:${(props) => props.flexDirection};
-    width:${(props) => props.width}
-    height:${(props) => props.height}
+    width:${(props) => props.width};
+    height:${(props) => props.height};
     z-index:1;
 `;
 
@@ -19,9 +19,11 @@ export const Button = styled.button`
   border-radius: 12px;
   font-size: 18px;
   padding: 6px;
+  z-index:1;
   &:hover {
     background: rgb(25, 93, 211);
   }
+
 `;
 
 export const StyledLink = styled(Link)`

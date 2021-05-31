@@ -8,6 +8,8 @@ import SignIn from "./sign-in-page/SignIn";
 import theme from "./globals/theme";
 import Login from "./login-page/Login";
 import MainPage from "./main-page/MainPage";
+import EventList from "./main-page/Event-components/EventDetails"
+
 import { RecoilRoot } from "recoil";
 
 const App = () => {
@@ -20,6 +22,7 @@ const App = () => {
             <Route path="/signIn" exact component={SignIn} />
             <Route path="/login" exact component={Login} />
             <Route path="/dashBoard" exact component={MainPage} />
+            <Route path="/dashBoard/event-list" exact component={EventList} />
           </Switch>
         </Router>
       </ThemeProvider>

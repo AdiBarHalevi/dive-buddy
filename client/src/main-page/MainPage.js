@@ -9,7 +9,7 @@ import { userGlobalDataState } from "../globals/atoms";
 import { useRecoilState, useRecoilValue } from "recoil";
 import NavBar from "./NavBar";
 import WelcomeToDashBoard from "./WelcomeToDashBoard";
-import EventList from "./EventList";
+import EventList from "./Event-components/EventList";
 import { DashBoardContainer, MainDivDashBoardStyle } from "./MainPageStyle";
 import PostAtrip from "./PostAtrip";
 
