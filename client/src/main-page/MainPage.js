@@ -40,11 +40,13 @@ const MainPage = () => {
       <DashBoardContainer>
       {displayManager()}
         <MainDivDashBoardStyle>
-          <FlexBoxStyledComponent width="30px" justifyContent="space-around">
+          <FlexBoxStyledComponent width="90%" justifyContent="space-around">
             <Button
               onClick={() => {
                 handleClick("calender");
               }}
+              margin="1rem"
+              width="15rem"
             >
               find me a buddy!
             </Button>
@@ -52,6 +54,8 @@ const MainPage = () => {
               onClick={() => {
                 handleClick("postAtrip");
               }}
+              margin="1rem"
+              width="15rem"
             >
               Post A trip
             </Button>
@@ -59,6 +63,8 @@ const MainPage = () => {
             onClick={() => {
               handleClick("greet");
             }}
+            margin="1rem"
+            width="15rem"
           >
             {" "}
             go back

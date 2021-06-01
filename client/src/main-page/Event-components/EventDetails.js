@@ -14,7 +14,7 @@ const EventDetails = (props)=>{
     
     <PageStyle backGroundImage={Bubbles}>
      
-        <DashBoardContainer>
+        <DashBoardContainer style={{alignItems:"center"}}>
             <MainDivDashBoardStyle>
                
                 <Table>

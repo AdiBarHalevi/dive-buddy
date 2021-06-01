@@ -13,6 +13,7 @@ export const FlexBoxStyledComponent = styled.div`
 
 export const Button = styled.button`
   margin: ${(props) => props.margin};
+  width:${(props) => props.width};
   color: white;
   background: #1974d3;
   cursor: pointer;

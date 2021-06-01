@@ -35,7 +35,7 @@ const PostAtrip = () => {
           <InputStyle type="text" width="100%" ref={locationRef} required />
           <label>who's joining you?</label>
           <InputStyle type="text" width="100%" ref={peopleRef} required />
-          <Button type="submit" margin="2rem">
+          <Button type="submit" margin=" 1rem 5rem 1rem 0" width="11rem">
             SUBMIT
           </Button>
         </Form>

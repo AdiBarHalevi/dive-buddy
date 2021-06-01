@@ -8,7 +8,7 @@ import {
 const LinkButton = ({ label, destination, color, title }) => (
   <FlexBoxStyledComponent flexDirection="column">
     {label && <Label> {label}</Label>}
-    <Button>
+    <Button margin="1rem">
       <StyledLink to={destination} color={color}>
         {title}
       </StyledLink>

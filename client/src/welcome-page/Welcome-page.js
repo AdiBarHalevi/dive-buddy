@@ -13,7 +13,7 @@ import LinkButton from "../common-components/LinkButton";
 const WelcomePage = () => (
   <PageStyle backGroundImage={Wave}>
     <InteractionCard>
-      <FlexBoxStyledComponent flexDirection="column" width="2rem">
+      <FlexBoxStyledComponent flexDirection="column" width="12rem">
         <H1>DiveBuddy!</H1>
         <Paragraph>Find a Buddy to dive with</Paragraph>
       </FlexBoxStyledComponent>
