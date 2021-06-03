@@ -43,6 +43,16 @@ export const PostEvent = async (body) => {
   }
 };
 
+export const joinAnEvent = async (body,data) => {
+  console.log(body)
+  try {
+    const res = await axiosInstance.put(`/events`, { userDetails:body,eventData:data });
+    // return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const findLocationAPI = async (adress)=>{
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(adress)}.json?access_token=pk.eyJ1IjoiYWRpYmFyMTQxIiwiYSI6ImNrbmZ4dTZkYTJ6dWcycHA5amliejJ6ZmoifQ.bYYgGmzzRfwr2D9REQmfzA&limit=1`
   try{

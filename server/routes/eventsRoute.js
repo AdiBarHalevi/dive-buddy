@@ -20,6 +20,13 @@ router
     } catch (e) {
       console.log(e);
     }
+  })
+  .put("/", async (req, res) => {
+    try {
+      eventController.joinAnEvent(req, res);
+    } catch (e) {
+      console.log(e);
+    }
   });
 
 module.exports = router;

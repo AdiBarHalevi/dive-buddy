@@ -25,4 +25,26 @@ const postEvent = async (req, res) => {
   }
 };
 
-module.exports = { getAllEvents, postEvent };
+const joinAnEvent = async (req, res) => {
+  // user's details
+  console.log(req.body.userDetails)
+  // event details
+  console.log(req.body.eventData)
+  res.send("hello")
+  // try {
+  //   const { date, location, participents } = req.body.body;
+  //   const ans = await new EventModel({
+  //     date,
+  //     location,
+  //     isActive: true,
+  //     participents,
+  //   });
+  //   ans.save();
+  //   res.status(200).send(ans);
+  // } catch (e) {
+  //   res.status(400).send(e);
+  // }
+};
+
+
+module.exports = { getAllEvents, postEvent,joinAnEvent };

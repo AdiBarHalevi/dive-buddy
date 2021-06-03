@@ -6,7 +6,7 @@ import PageStyle from "../common-components/styled-components/PageStyle";
 
 import Bubbles from "../img/bubblesGif.gif";
 import { userGlobalDataState } from "../globals/atoms";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import NavBar from "./NavBar";
 import WelcomeToDashBoard from "./WelcomeToDashBoard";
 import EventList from "./Event-components/EventList";
@@ -15,7 +15,7 @@ import PostAtrip from "./PostAtrip";
 
 const MainPage = () => {
 
-  const [userGlobalData,setUserGlobalDataState] = useRecoilState(userGlobalDataState);
+  const userGlobalData = useRecoilValue(userGlobalDataState); 
 
 
   const [displayState, setDisplayState] = useState("greet");
